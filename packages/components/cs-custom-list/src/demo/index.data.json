@@ -1,0 +1,26 @@
+{
+  "content": [
+    {
+      "icon": {
+        "type": "sprite",
+        "content": "icon-tick"
+      },
+      "text": "lorem ipsum",
+      "url": "#"
+    },
+    {
+      "icon": {
+        "type": "character",
+        "content": "□"
+      },
+      "text": "lorem ipsum dolor",
+      "url": "#"
+    },
+    {
+      "text": "asd"
+    }
+  ],
+  "settings": {
+    "order": "vertical"
+  }
+}

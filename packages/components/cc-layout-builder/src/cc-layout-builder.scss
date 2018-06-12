@@ -1,0 +1,173 @@
+// cc-layout-builder
+// It bootstraps layout for Creative Constructor backend
+//
+// See http://warpspire.com/kss/ for documentation guidelines.
+// Version 0.0.1
+$namespace: 'cc-' !default;
+
+@import '../../action-button/src/action-button';
+@import '../../cc-component-actions/src/cc-component-actions';
+@import '../../cc-component-display-controller/src/cc-component-display-controller';
+@import '../../cc-component-placeholder/src/cc-component-placeholder';
+@import '../../cc-component-adder/src/cc-component-adder';
+@import '../../cc-component-brand-carousel-preview/src/cc-component-brand-carousel-preview';
+@import '../../cc-component-button-preview/src/cc-component-button-preview';
+@import '../../cc-component-headline-preview/src/cc-component-headline-preview';
+@import '../../cc-component-image-teaser-preview/src/cc-component-image-teaser-preview';
+@import '../../cc-component-cms-teaser-preview/src/cc-component-cms-teaser-preview';
+@import '../../cc-component-hero-carousel-preview/src/cc-component-hero-carousel-preview';
+@import '../../cc-component-paragraph-preview/src/cc-component-paragraph-preview';
+@import '../../cc-component-product-carousel-preview/src/cc-component-product-carousel-preview';
+@import '../../cc-component-static-cms-block-preview/src/cc-component-static-cms-block-preview';
+@import '../../cc-component-separator-preview/src/cc-component-separator-preview';
+@import '../../cc-component-category-links-preview/src/cc-component-category-links-preview';
+@import '../../cc-component-product-grid-preview/src/cc-component-product-grid-preview';
+@import '../../cc-component-magento-product-grid-teasers-preview/src/cc-component-magento-product-grid-teasers-preview';
+@import '../../cc-component-custom-html-preview/src/cc-component-custom-html-preview';
+
+.#{$namespace}layout-builder {
+    $root: &;
+
+    &__filters {
+        margin-bottom: 70px;
+    }
+
+    &__filter {
+        border-bottom: 1px solid #efefef;
+
+        &:first-child {
+            margin-top: -20px;
+            border-top: 1px solid #ccc;
+        }
+
+        &-content {
+            padding: 15px 0;
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &-icon {
+            width: 24px;
+            height: 16px;
+        }
+
+        &-title {
+            padding-left: 8px;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: .9em;
+            line-height: 1.5rem;
+            color: #999;
+        }
+
+        &-control {
+            margin-left: 27px;
+        }
+    }
+
+    &__component {
+        position: relative;
+        width: 100%;
+        margin: 0 0 3rem;
+        padding: 1.3rem;
+        background-color: #fff;
+        box-shadow: 0 0 10px 2px rgba( 0, 0, 0, .12 );
+        box-sizing: border-box;
+        text-align: center;
+        transition: all .15s ease-in-out;
+        backface-visibility: hidden;
+
+        &--special {
+            padding: .8rem;
+            border: .5rem solid #f99e6e;
+        }
+
+        &--animating {
+            pointer-events: none;
+            transition: box-shadow .15s ease-in-out, transform .4s cubic-bezier( 0, .7, .32, 1 );
+        }
+
+        &--invisible {
+            box-shadow: 0 0 30px 2px rgba( 150, 150, 150, .12 );
+            background-color: #fdfdfd;
+
+            .cc-component-placeholder__component, 
+            .m2c-component-placeholder__component {
+                opacity: .25;
+            }
+        }
+
+        &--filtered-out {
+            min-height: 0 !important;
+            height: 0;
+            opacity: 0;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:not( #{$root}__component--static ) {
+            min-height: 12rem;
+
+            &:before {
+                position: absolute;
+                top: .5rem;
+                left: .5rem;
+                width: calc( 100% - 1rem );
+                height: calc( 100% - 1rem );
+                content: '';
+                background: rgba( #0072ff, .9 );
+                z-index: 3;
+                opacity: 0;
+                transform: scale( .85 );
+                transition: transform .35s cubic-bezier( 0, .77, .23, 1 ), opacity .3s cubic-bezier( 0, .77, .23, 1 );
+            }
+        }
+
+        &:hover {
+            box-shadow: 0 0 12px 4px rgba( 0, 0, 0, .18 );
+
+            &:before {
+                transform: scale( 1 );
+                opacity: 1;
+            }
+
+            #{$root}__component-actions {
+                opacity: 1;
+                transform: translate3d( -50%, -50%, 0 );
+            }
+
+            .cc-component-adder {
+                z-index: 7;
+                opacity: 1;
+                transform: translate3d( 0, 0, 0 );
+            }
+        }
+
+        &--filter:hover {
+            box-shadow: 0 0 10px 2px rgba( 0, 0, 0, .12 );
+        }
+    }
+
+    &__component-actions {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        opacity: 0;
+        transform: translate3d( -50%, -75%, 0 );
+        z-index: 5;
+        backface-visibility: hidden;
+        transition: all .25s ease-in-out;
+    }
+
+    &__component-wrapper {
+        margin: 0;
+        transition: opacity .2s linear;
+    }
+}

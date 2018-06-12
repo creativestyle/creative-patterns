@@ -1,0 +1,38 @@
+// cs-price
+// Price component with few versions
+//
+// See http://warpspire.com/kss/ for documentation guidelines.
+// Version 0.0.1
+.cs-price {
+    font-size: 2rem;
+    color: #111;
+    display: block;
+    font-family: 'sans-serif';
+
+    &__old {
+        display: block;
+        font-size: .7em;
+        color: #aaa;
+        text-decoration: line-through;
+    }
+    &__base {
+        display: block;
+        font-weight: 700;
+
+        &--promo {
+            color: #f00;
+        }
+    }
+
+    &__currency {
+        display: inline-block;
+        font-size: .7em;
+
+    }
+
+    &__subtext {
+        font-size: .5em;
+        display: block;
+        color: #777;
+    }
+}

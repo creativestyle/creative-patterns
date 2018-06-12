@@ -1,0 +1,44 @@
+// cs-single-review
+// Single review component
+//
+// See http://warpspire.com/kss/ for documentation guidelines.
+// Version 0.0.1
+$namespace: 'cs-' !default;
+
+@import '../../star-rating/src/star-rating';
+
+.#{$namespace}review {
+    font-size: 1rem;
+    font-family: sans-serif;
+
+    &__title {
+        display: block;
+        font-weight: 700;
+    }
+
+    &__meta-item {
+        vertical-align: middle;
+        padding: 0 .5em;
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &:last-child {
+            border-right: none;
+        }
+
+    }
+
+    &__stars {
+        height: 1em;
+    }
+
+    &__author {
+        line-height: 1em;
+    }
+
+    &__date {
+        line-height: 1em;
+    }
+}

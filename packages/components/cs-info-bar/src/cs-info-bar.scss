@@ -1,0 +1,47 @@
+// info-bar
+// Wide bar with few information blocks on the top of the page
+//
+// See http://warpspire.com/kss/ for documentation guidelines.
+// Version 0.0.1
+
+@import '../../cs-custom-list/src/cs-custom-list';
+
+.cs-info-bar {
+    font-size: 1rem;
+    list-style: none;
+    display: flex;
+    margin: 0 auto;
+    padding: .5em 1em;
+    font-family: 'sans-serif';
+
+    background-color: #eee;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+
+    &--align {
+        &_stretch {
+            justify-content: space-between;
+        }
+        &_left {
+            justify-content: flex-start;
+        }
+        &_right {
+            justify-content: flex-end;
+        }
+    }
+
+    &__item {
+        margin-right: 2em;
+
+    }
+
+    &__features {
+        padding: 0;
+        color: #555;
+    }
+
+    &__contact-info {
+        //
+    }
+
+}

@@ -1,0 +1,106 @@
+$namespace: 'cs-';
+@import '../../../../utilities/breakpoint/src/breakpoint';
+@import '../../../cs-input/src/cs-input';
+@import '../../../cs-button/src/cs-button';
+@import '../../../star-rating/src/star-rating';
+@import '../../../swatches/src/swatches';
+@import '../../../price-box/src/price-box';
+@import '../../../item-cloner/src/item-cloner.scss';
+@import '../grid-product.scss';
+
+html {
+    font-family: Open Sans, Arial, sans-serif;
+    background: #f0f0f0;
+}
+
+.cols {
+    display: flex;
+    justify-content: space-around;
+    margin: 4em auto;
+}
+
+.col {
+    max-width: 350px;
+
+    > div > h4 {
+        margin-top: 2.5em;
+    }
+}
+
+.wide {
+    max-width: 1000px;
+    margin: 4em auto;
+}
+
+.narrow > div,
+.wide > ul {
+    margin: 0 0 4em;
+}
+
+#item-cloner-output {
+    margin: 0;
+    padding: 0;
+    font-size: .9rem;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    list-style: none;
+    background: #fff;
+
+    &:empty {
+        padding: 1rem;
+    }
+
+    li {
+        margin: 0;
+        padding: .5rem;
+        border-top: 1px solid #dbdbdb;
+
+        + li.cloner-callback-info {
+            display: none;
+        }
+
+        &:first-child {
+            border: none;
+        }
+
+        span + span {
+            &:before {
+                content: '(';
+            }
+            &:after {
+                content: ')';
+            }
+        }
+
+        @media (min-width: 768px) {
+            display: flex;
+            justify-content: space-between;
+
+            span + span {
+                color: #888;
+
+                &:before,
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.#{$namespace}swatches {
+    @include swatches();
+}
+
+.price-box {
+    @include priceBox();
+}
+
+.#{$namespace}grid-product {
+    @include gridProduct();
+}
+
+.#{$namespace}item-cloner {
+    @include itemCloner();
+}
+
