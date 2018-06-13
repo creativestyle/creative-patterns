@@ -26,7 +26,7 @@
     "license": "OSL-3.0",
     "repository": {
         "type": "git",
-        "url": "https://gitlab.creativestyle.pl/frontend/creative-patterns"
+        "url": "https://github.com/creativestyle/creative-patterns.git"
     },
     "devDependencies": {
         "@types/es6-promise": "0.0.33",
